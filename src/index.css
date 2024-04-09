@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ——— Global ———————————————————————————————————————————————————————————————— */
+@layer base {
+  html {
+    --primary-color: #102534;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: var(--primary-color);
+  }
+
+  h1 {
+    @apply uppercase text-2xl xss:text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:leading-[4.5rem] whitespace-nowrap
+  }
+
+  h2 {
+    @apply font-normal text-xl xss:text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:leading-[4.5rem]
+  }
+
+  h3 {
+    @apply text-xl xss:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light lg:leading-[4rem]
+  }
+
+  p {
+    @apply font-light text-base xss:text-lg sm:text-xl md:text-2xl lg:text-3xl
+  }
+
+  .layout {
+    @apply p-[1rem] sm:mx-4 lg:mx-12 max-w-[1200px] mx-auto
+  }
+
+  .layoutSun {
+    @apply px-[1rem] sm:mx-4 lg:mx-12 max-w-[1200px] mx-auto
+  }
+
+  .quote {
+    @apply font-merri italic text-base xss:text-xl sm:text-2xl md:text-3xl lg:text-4xl
+  }
+
+  .p-small {
+    @apply font-extralight text-sm
+  }
+
+  .shade {
+    text-shadow: -1px 3px 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ——— Custom Properties ————————————————————————————————————————————————————— */
+body {
+  --amp-l-blue: #23C3D2;
+  --amp-d-blue: #102534;
+  --amp-yellow: #E6E664;
+  --amp-orange: #F88729;
+  --amp-red: #DC5A46;
+  --amp-d-green: #475F4A;
+  --amp-green: #8A9C5E;
+  --amp-l-green: #98A665;
+  --amp-gushy-green: #BCBF65;
+  --amp-gushy-yellow: #D5D96C;
+  --amp-purple: #822887;
+  --amp-grey: #DCE2DE;
+}
+
+/* ——— Utilities ————————————————————————————————————————————————————————————— */
+@layer utilities {
+  .center {
+    @apply flex items-center justify-center;
+  }
+}
+
+/* ——— Scroll ———————————————————————————————————————————————————————————————— */
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+/* ——— Work —————————————————————————————————————————————————————————————————— */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 100px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+/* ——— Impact ———————————————————————————————————————————————————————————————— */
+@layer utilities {
+  .arrow-tip-right {
+    @apply border-b-8 border-r-8 w-[1.5rem] h-[1.5rem] -rotate-45 rounded-full
+  }
+}
+
+.triangle-front {
+  width: 100vw;
+  aspect-ratio: 1/cos(68deg);
+  clip-path: polygon(-86.5% 0, 100% 100%, -100% 160%);
+  background: var(--amp-orange);
+  z-index: 1;
+
+}
+
+.triangle-back {
+  width: 100vw;
+  aspect-ratio: 1/cos(68deg);
+  clip-path: polygon(24.5% 0, 100% 100%, -35% 112%);
+  background: rgb(15, 15, 38);
+  z-index: 2;
+}
+
+.triangle-middle {
+  width: 100vw;
+  aspect-ratio: 1/cos(68deg);
+  clip-path: polygon(25% 8%, 100% 100%, -35% 100%);
+  background: #f9771a;
+  z-index: -3;
+}
+
+/* ——— About ————————————————————————————————————————————————————————————————— */
+.raindrop {
+  @apply rounded-full w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24
+}
+
+.wonderQuote {
+  @apply font-merri italic font-medium text-xl sm:text-2xl md:text-3xl
+}
+
+/* ——— Lets Talk ————————————————————————————————————————————————————————————— */
+.inputs {
+  @apply w-full px-4 py-2 placeholder-amp-d-blue focus:text-white outline-none border-2 border-white focus:border-amp-orange focus:border-dashed focus:bg-inherit transition-all duration-200
+}
+
+/* ——— COOKIE & PRIVACY POLICY ——————————————————————————————————————————————— */
+.policies {
+  @apply p-4 flex flex-col gap-6 
+}
+
+.policies * h3 {
+  @apply py-3
+}
+
+.policies * h4 {
+  @apply pt-3 pb-1
+}
+
+.policies * li {
+  @apply decoration-white
+}
+
+/* ——— MEDIA QUERIES ————————————————————————————————————————————————————————— */
+@media screen and (max-width: 640px) {
+
+  .triangle-front {
+    height: 150px;
+    width: 100vw;
+  }
+
+  .triangle-back {
+    height: 150px;
+    width: 100vw;
+  }
+
+  .triangle-middle {
+    height: 150px;
+    width: 100vw;
+  }
+
+}
+
+@media screen and (orientation: landscape) and (max-height: 400px) {
+
+  .triangle-front {
+    height: 200px;
+    width: 100%;
+  }
+
+  .triangle-back {
+    height: 200px;
+    width: 100%;
+  }
+
+  .triangle-middle {
+    height: 200px;
+    width: 100%;
+  }
+
+  .mobileLandscape {
+    @apply grid-cols-2 place-items-center gap-6 mx-auto
+  }
+}
